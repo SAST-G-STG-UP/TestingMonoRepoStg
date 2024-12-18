@@ -28,6 +28,7 @@
   },
   "scanSettingsSAST": {
     "enableScan": true,
+    "persistClonedRepo": true,
     "scanPullRequests": true,
     "enableRemediation": true,
     "incrementalScan": true,

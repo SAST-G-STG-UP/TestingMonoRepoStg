@@ -56,19 +56,20 @@
  		if (ampersandLoc != -1) {
  			param = queryString.substring(paramLoc + paramval.length(), ampersandLoc);
  		}
--		param = java.net.URLDecoder.decode(param, "UTF-8");
-+String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD=?";
+ 		param = java.net.URLDecoder.decode(param, "UTF-8");
  
  		String bar = doSomething(param);
--		
+ 		
 -		String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='"+ bar +"'";
-+PreparedStatement statement = connection.prepareStatement(sql);
-+statement.setString(1, bar);
-+statement.execute();
++        String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD=?";
  				
- 		try {
- 			java.sql.Statement statement =  org.owasp.benchmark.helpers.DatabaseHelper.getSqlStatement();
- 			statement.execute( sql, new int[] { 1, 2 } );
+-		try {
+-			java.sql.Statement statement =  org.owasp.benchmark.helpers.DatabaseHelper.getSqlStatement();
+-			statement.execute( sql, new int[] { 1, 2 } );
++        try {
++            PreparedStatement statement = org.owasp.benchmark.helpers.DatabaseHelper.getSqlConnection().prepareStatement(sql);
++            statement.setString(1, bar);
++            statement.execute();
              org.owasp.benchmark.helpers.DatabaseHelper.printResults(statement, sql, response);
  		} catch (java.sql.SQLException e) {
  			if (org.owasp.benchmark.helpers.DatabaseHelper.hideSQLErrors) {

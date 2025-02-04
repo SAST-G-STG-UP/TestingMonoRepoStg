@@ -17,8 +17,10 @@
   */
  package org.owasp.benchmark.testcode;
  
-+import org.springframework.jdbc.core.PreparedStatementSetter;
++import java.sql.SQLException;
 +import java.sql.PreparedStatement;
++import java.sql.Connection;
++import org.springframework.jdbc.core.PreparedStatementCreator;
  import java.io.IOException;
  import javax.servlet.ServletException;
  import javax.servlet.annotation.WebServlet;
@@ -62,21 +64,24 @@
                      break;
                  }
              }
--        }
-+String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD=?";
+         }
  
          String bar = new Test().doSomething(request, param);
--
-+org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.queryForRowSet(sql, new PreparedStatementSetter() {
-+    @Override
-+    public void setValues(PreparedStatement ps) throws SQLException {
-+        ps.setString(1, bar);
-+    }
-+});
-         String sql = "SELECT  * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'";
-         try {
-             org.springframework.jdbc.support.rowset.SqlRowSet results =
-                     org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.queryForRowSet(sql);
+ 
+-        String sql = "SELECT  * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'";
+-        try {
+-            org.springframework.jdbc.support.rowset.SqlRowSet results =
+-                    org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.queryForRowSet(sql);
++        String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD=?";
++        PreparedStatementCreator psc = new PreparedStatementCreator() {
++            @Override
++            public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
++                PreparedStatement ps = connection.prepareStatement(sql);
++                ps.setString(1, bar);
++                return ps;
++            }
++        };
++        org.springframework.jdbc.support.rowset.SqlRowSet results = org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(psc);
              response.getWriter().println("Your results are: ");
  
              //		System.out.println("Your results are");

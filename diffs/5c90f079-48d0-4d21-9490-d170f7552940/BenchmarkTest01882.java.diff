@@ -17,7 +17,7 @@
   */
  package org.owasp.benchmark.testcode;
  
-+import org.springframework.jdbc.core.PreparedStatementSetter;
++import java.sql.PreparedStatement;
  import java.io.IOException;
  import javax.servlet.ServletException;
  import javax.servlet.annotation.WebServlet;
@@ -61,29 +61,19 @@
                      break;
                  }
              }
--        }
-+String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD=?";
+         }
  
          String bar = doSomething(request, param);
--
-+org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(sql, new PreparedStatementSetter() {
-+    @Override
-+    public void setValues(PreparedStatement ps) throws SQLException {
-+        ps.setString(1, bar);
-+    }
-+}, new org.springframework.jdbc.core.RowMapper<Object>() {
-+    @Override
-+    public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-+        // Your row mapping logic here
-+        return null;
-+    }
-+});
-         String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'";
+ 
+-        String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD='" + bar + "'";
++        String sql = "SELECT * from USERS where USERNAME='foo' and PASSWORD=?";
          try {
              java.util.List<String> results =
                      org.owasp.benchmark.helpers.DatabaseHelper.JDBCtemplate.query(
                              sql,
++                            new Object[]{bar},
                              new org.springframework.jdbc.core.RowMapper<String>() {
++                            new org.springframework.jdbc.core.RowMapper<String>() {
                                  @Override
                                  public String mapRow(java.sql.ResultSet rs, int rowNum)
                                          throws java.sql.SQLException {

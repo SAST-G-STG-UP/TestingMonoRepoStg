@@ -75,19 +75,16 @@
                              "Access to file: '"
                                      + org.owasp
                                              .esapi
-+    try {
-+        String normalizedPath = fileTarget.getCanonicalPath();
-+        if (!normalizedPath.startsWith(new java.io.File("./").getCanonicalPath())) {
-+            throw new IOException("Invalid file path");
-+        }
-+    } catch (IOException e) {
-+        throw new RuntimeException("Error validating file path", e);
-+    }
-+
                                              .ESAPI
                                              .encoder()
                                              .encodeForHTML(fileTarget.toString())
                                      + "' created.");
++            String normalizedPath = fileTarget.getCanonicalPath();
++            if (!normalizedPath.startsWith(new java.io.File(org.owasp.benchmark.helpers.Utils.TESTFILES_DIR).getCanonicalPath())) {
++                response.getWriter().println("Error: Attempt to access file outside of the base directory.");
++                return;
++            }
++
              if (fileTarget.exists()) {
                  response.getWriter().println(" And file already exists.");
              } else {

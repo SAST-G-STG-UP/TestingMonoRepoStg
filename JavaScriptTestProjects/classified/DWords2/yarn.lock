@@ -8529,9 +8529,7 @@ wcwidth@^1.0.1:
     defaults "^1.0.3"
 
 webdav@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.nlark.com/webdav/download/webdav-4.6.0.tgz#b12d3631562ed4a7d665dd1757349682dfc8f441"
-  integrity sha1-sS02MVYu1KfWZd0XVzSWgt/I9EE=
+  version "4.6.1"
   dependencies:
     axios "^0.21.1"
     base-64 "^1.0.0"

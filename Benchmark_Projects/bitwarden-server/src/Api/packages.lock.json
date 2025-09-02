@@ -85,8 +85,8 @@
       },
       "Azure.Core": {
         "type": "Transitive",
-        "resolved": "1.24.0",
-        "contentHash": "+/qI1j2oU1S4/nvxb2k/wDsol00iGf1AyJX5g3epV7eOpQEP/2xcgh/cxgKMeFgn3U2fmgSiBnQZdkV+l5y0Uw==",
+        "resolved": "1.28.0",
+        "contentHash": "IY6rGo8r8MfcmIxaNGFhIn/5PTz2Eld6Uqmy3bL/NX+2+g7hroo69jcJ9jeRPkuKXZPPreXTr8zt49No11Wbug==",
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "System.Diagnostics.DiagnosticSource": "4.6.0",
@@ -132,19 +132,19 @@
       },
       "Azure.Storage.Common": {
         "type": "Transitive",
-        "resolved": "12.10.0",
-        "contentHash": "vYkHGzUkdZTace/cDPZLG+Mh/EoPqQuGxDIBOau9D+XWoDPmuUFGk325aXplkFE4JFGpSwoytNYzk/qBCaiHqg==",
+        "resolved": "12.14.0",
+        "contentHash": "Fd6xg64hJy3NRBBcIijahJgUPyCv3qXaR61RqBnkTsDCywlVrdb8neulFJPd4smj2yvXogFdja0IteVKugr4nw==",
         "dependencies": {
-          "Azure.Core": "1.22.0",
+          "Azure.Core": "1.28.0",
           "System.IO.Hashing": "6.0.0"
         }
       },
       "Azure.Storage.Queues": {
         "type": "Transitive",
-        "resolved": "12.9.0",
-        "contentHash": "jDiyHtsCUCrWNvZW7SjJnJb46UhpdgQrWCbL8aWpapDHlq9LvbvxYpfLh4dfKAz09QiTznLMIU3i+md9+7GzqQ==",
+        "resolved": "12.13.0",
+        "contentHash": "ZJ8TVuqTAVKqAUj3PL5zU6RP+skiqv9y69hPEGVjFjJcy+p+9T6Bg7muodyGwGMjx4m7lEC2Tj1lAdulktUGhA==",
         "dependencies": {
-          "Azure.Storage.Common": "12.10.0",
+          "Azure.Storage.Common": "12.14.0",
           "System.Memory.Data": "1.0.2",
           "System.Text.Json": "4.7.2"
         }
@@ -2735,7 +2735,7 @@
           "AspNetCoreRateLimit.Redis": "[1.0.1, )",
           "Azure.Extensions.AspNetCore.DataProtection.Blobs": "[1.2.1, )",
           "Azure.Storage.Blobs": "[12.11.0, )",
-          "Azure.Storage.Queues": "[12.9.0, )",
+          "Azure.Storage.Queues": "[12.13.0, )",
           "BitPay.Light": "[1.0.1907, )",
           "Braintree": "[5.12.0, )",
           "Fido2.AspNet": "[3.0.0-beta2, )",

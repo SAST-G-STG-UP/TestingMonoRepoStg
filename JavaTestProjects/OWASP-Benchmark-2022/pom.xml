@@ -1230,7 +1230,7 @@
         <version.apache-shared-ldap>0.9.19</version.apache-shared-ldap>
         <version.exec.maven>1.6.0</version.exec.maven>
         <!-- hibernate is up to rev 6+. But 4.0.0. causes this error: symbol: org.hibernate.classic.Session not found -->
-        <version.hibernate>3.6.10.Final</version.hibernate>
+        <version.hibernate>5.4.18.Final</version.hibernate>
         <version.spotbugs.maven>4.7.3.0</version.spotbugs.maven>
         <version.spotbugs>4.7.3</version.spotbugs>
         <version.springframework>4.3.30.RELEASE</version.springframework>

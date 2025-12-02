@@ -18,7 +18,7 @@
         <log4j2.version>2.19.0</log4j2.version>
         <jetty-plugin.version>9.4.46.v20220331</jetty-plugin.version>
         <jackson.version>2.14.1</jackson.version>
-        <jackson-data-bind.version>2.14.1</jackson-data-bind.version>
+        <jackson-data-bind.version>2.14.2</jackson-data-bind.version>
     </properties>
 
     <dependencies>

@@ -7581,9 +7581,7 @@ sprintf-js@~1.0.2:
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
 sqlite3@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.nlark.com/sqlite3/download/sqlite3-5.0.2.tgz#00924adcc001c17686e0a6643b6cbbc2d3965083"
-  integrity sha1-AJJK3MABwXaG4KZkO2y7wtOWUIM=
+  version "5.0.3"
   dependencies:
     node-addon-api "^3.0.0"
     node-pre-gyp "^0.11.0"
